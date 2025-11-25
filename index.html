@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChromaSeason | Seasonal Color Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              'primary': '#E8DED1', // Soft Beige
+              'secondary': '#2C2C2C', // Soft Black
+              'accent': '#D4A373', // Muted Gold
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #FAFAF9; /* stone-50 */
+      }
+      /* Hide scrollbar for clean UI */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* PRINT OPTIMIZATION */
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm;
+        }
+        body {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          background-color: white !important;
+        }
+        /* Hide UI elements */
+        .no-print {
+          display: none !important;
+        }
+        /* Ensure containers expand fully */
+        #report-container {
+          width: 100% !important;
+          max-width: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        /* Prevent awkward breaks inside cards */
+        .break-inside-avoid {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        /* Improve text contrast for print */
+        p, span, h1, h2, h3, h4, h5, h6 {
+          color: #000 !important;
+          text-shadow: none !important;
+        }
+        /* Force grid layouts for desktop view in print */
+        #grid-hero { grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }
+        #grid-skin { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+        #grid-scales { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        #grid-comparison { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+        #grid-style { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        #grid-recs { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+        #grid-palette { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js",
+    "jspdf": "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js",
+    "fflate": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/esm/browser.js",
+    "@babel/runtime/helpers/typeof": "https://cdn.jsdelivr.net/npm/@babel/runtime@7.24.0/helpers/esm/typeof.js"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

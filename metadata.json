@@ -1,0 +1,7 @@
+{
+  "name": "ChromaSeason - AI Seasonal Color Analysis",
+  "description": "Discover your personal seasonal color palette using AI. Upload a photo to get a professional style diagnosis, makeup recommendations, and fashion tips.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
